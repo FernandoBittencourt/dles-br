@@ -12,18 +12,20 @@ function bindDleTile(tile: HTMLElement) {
 
   const markLoaded = () => {
     if (img.naturalWidth > 0) tile.classList.add('is-loaded');
+    else markFallback();
   };
 
   const markFallback = () => {
     tile.classList.remove('is-loaded');
   };
 
+  img.addEventListener('load', markLoaded);
+  img.addEventListener('error', markFallback);
+
   if (img.complete) {
-    if (img.naturalWidth > 0) markLoaded();
-    else markFallback();
+    markLoaded();
   } else {
-    img.addEventListener('load', markLoaded);
-    img.addEventListener('error', markFallback);
+    void img.decode().then(markLoaded).catch(markFallback);
   }
 }
 
@@ -54,6 +56,7 @@ export function mountDleTile(tile: HTMLElement, dle: DleTileSource) {
   img.width = 48;
   img.height = 48;
   img.decoding = 'async';
+  img.loading = 'eager';
 
   tile.append(initialEl, img);
   bindDleTile(tile);

@@ -355,6 +355,14 @@ input {
   display: block;
 }
 
+/* Logo com fundo escuro (ex.: CodeDoku) — contraste no tile */
+.is-loaded .dle-tile__icon[data-icon-kind='logo'] {
+  background: #fff;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+  box-sizing: border-box;
+}
+
 .dle-card__category {
   font-family: var(--font-mono);
   font-size: 0.62rem;

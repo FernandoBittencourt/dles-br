@@ -6,9 +6,10 @@ export function getDleInitial(name: string): string {
   return name.trim().charAt(0).toUpperCase() || '?';
 }
 
+/** Favicon via domínio — a maioria dos sites não expõe /favicon.ico na raiz. */
 export function getFaviconUrl(gameUrl: string): string {
-  const { origin } = new URL(gameUrl);
-  return `${origin}/favicon.ico`;
+  const { hostname } = new URL(gameUrl);
+  return `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`;
 }
 
 /** Logo do criador (`icon`) ou favicon do site quando não houver autorização explícita. */
