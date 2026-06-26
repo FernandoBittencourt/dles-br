@@ -25,14 +25,6 @@
     "featured": true
   },
   {
-    "id": "drible",
-    "name": "Drible",
-    "url": "https://drible.ee/",
-    "description": "Chute o jogador do dia. As dicas vão abrindo conforme você erra.",
-    "category": "cultura",
-    "featured": true
-  },
-  {
     "id": "dueto",
     "name": "Dueto",
     "url": "https://term.ooo/2/",
@@ -49,10 +41,26 @@
     "featured": true
   },
   {
+    "id": "expresso",
+    "name": "Expresso",
+    "url": "https://expresso.ac/pt/",
+    "description": "Adivinhe a expressão do dia, letra a letra. Mostra quantas palavras e letras tem a frase.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
     "id": "letreco",
     "name": "Letreco",
     "url": "https://www.gabtoschi.com/letreco/",
     "description": "Cinco letras, seis chutes, dicas coloridas. Wordle brasileiro de sempre.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "letroso",
+    "name": "Letroso",
+    "url": "https://letroso.com/pt/",
+    "description": "Palavra secreta de 3 a 10 letras, tentativas ilimitadas. Dicas coloridas e pistas de letras adjacentes.",
     "category": "palavras",
     "featured": true
   },

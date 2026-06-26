@@ -43,7 +43,7 @@ Correção urgente em produção: branch `fix/...` → PR para `main`; depois si
 
 1. Edite `src/data/dles.json` (ordem alfabética por `name` ajuda na revisão).
 2. Use descrições originais e curtas (não copie textos de marketing).
-3. Confirme que o link abre e é gratuito no navegador.
+3. Confirme que o link abre e é gratuito no navegador (`npm run check:links` — o CI roda isso em todo PR).
 4. `featured: true` só para jogos que você recomendaria no sorteio diário — o sorteio trata todos com peso igual.
 
 ### Ícone do jogo
