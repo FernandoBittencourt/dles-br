@@ -59,6 +59,22 @@ input {
   text-align: center;
 }
 
+.page-suggest > h1 {
+  text-align: left;
+}
+
+.page-suggest .page-intro,
+.page-suggest .suggest-note {
+  max-width: none;
+  margin-inline: 0;
+}
+
+.page-suggest .suggest-details {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
 .site-header {
   position: sticky;
   top: 0;

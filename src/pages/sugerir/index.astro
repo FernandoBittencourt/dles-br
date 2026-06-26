@@ -5,7 +5,6 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import {
   CONTRIBUTING_URL,
   CREATOR_SUBMIT_URL,
-  GITHUB_DISCUSSIONS_URL,
   SUGGEST_GAME_URL,
 } from '../../lib/site';
 import { webPageJsonLd } from '../../lib/seo';
@@ -18,7 +17,7 @@ const url = 'https://dles.com.br/sugerir/';
 
 <Layout title={title} description={description} jsonLd={webPageJsonLd(title, description, url)}>
   <Header />
-  <main class="container container--page">
+  <main class="container container--page page-suggest">
     <h1>Sugerir um jogo</h1>
     <p class="page-intro">
       Qualquer um pode sugerir. Quem criou o jogo tem formulário à parte e costuma ouvir resposta
@@ -49,27 +48,26 @@ const url = 'https://dles.com.br/sugerir/';
     </div>
 
     <p class="suggest-note">
-      Os dois formulários pedem conta no GitHub. Se ainda não tiver, dá pra criar em um minuto.
+      Os formulários ficam no GitHub e pedem uma conta gratuita. Se ainda não tiver, dá para criar
+      em poucos minutos.
     </p>
 
-    <div class="prose">
-      <h2>Quem entra na lista</h2>
-      <p>
-        Em português, grátis no browser, um puzzle por dia igual pra quem joga naquele dia.
-      </p>
+    <div class="suggest-details">
+      <section class="suggest-details__item">
+        <h2>Quem entra na lista</h2>
+        <p>
+          Em português, grátis no browser, um puzzle por dia igual pra quem joga naquele dia.
+        </p>
+      </section>
 
-      <h2>Como revisamos</h2>
-      <p>
-        Criadores costumam ter resposta mais rápida, mas passam pelo mesmo filtro. Sugestões
-        comuns vão pra fila: a gente abre o jogo e testa antes de incluir. Entrar ou não depende
-        do jogo, não de quem mandou.
-      </p>
-
-      <h2>Sem GitHub?</h2>
-      <p>
-        Por enquanto os formulários acima são o canal. Dá também pra escrever nas
-        <a href={GITHUB_DISCUSSIONS_URL}>discussões</a> do repo (login de novo).
-      </p>
+      <section class="suggest-details__item">
+        <h2>Como revisamos</h2>
+        <p>
+          Criadores costumam ter resposta mais rápida, mas passam pelo mesmo filtro. Sugestões
+          comuns vão pra fila: a gente abre o jogo e testa antes de incluir. Entrar ou não depende
+          do jogo, não de quem mandou.
+        </p>
+      </section>
     </div>
   </main>
   <SiteFooter />
@@ -109,7 +107,6 @@ const url = 'https://dles.com.br/sugerir/';
     color: var(--muted);
     font-size: 0.95rem;
     margin-bottom: var(--space-4);
-    max-width: 32ch;
   }
 
   .suggest-path .button-primary,
@@ -137,16 +134,51 @@ const url = 'https://dles.com.br/sugerir/';
     margin-top: var(--space-4);
     font-size: 0.92rem;
     color: var(--muted);
-    max-width: 52ch;
+    line-height: 1.6;
   }
 
-  .prose a {
+  .suggest-note a {
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
   }
 
-  .prose a:hover {
+  .suggest-note a:hover {
+    text-decoration: underline;
+  }
+
+  .suggest-details {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  @media (min-width: 36rem) {
+    .suggest-details {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .suggest-details__item h2 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .suggest-details__item p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .suggest-details a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .suggest-details a:hover {
     text-decoration: underline;
   }
 </style>
