@@ -12,7 +12,7 @@ const url = 'https://dles.com.br/sobre/';
 
 <Layout title={title} description={description} jsonLd={webPageJsonLd(title, description, url)}>
   <Header />
-  <main class="container container--page">
+  <main class="container container--page page-about">
     <h1>Sobre</h1>
     <p class="page-intro">
       Jogos diários tipo dle num lugar só. Um sorteio por dia; o resto da lista fica logo abaixo.
@@ -20,22 +20,26 @@ const url = 'https://dles.com.br/sobre/';
 
     <div class="prose">
       <h2>O que é um dle?</h2>
-      <p>
-        Veio do Wordle e virou apelido: puzzle no browser, um por dia, igual pra quem entra no
-        mesmo dia. Você joga, manda o resultado se quiser e volta amanhã.
-      </p>
+      <ul>
+        <li>Puzzle no browser — veio do Wordle e virou apelido.</li>
+        <li>Um por dia, igual pra quem entra no mesmo dia.</li>
+        <li>Você joga, manda o resultado se quiser e volta amanhã.</li>
+      </ul>
 
       <h2>Sorteado do dia</h2>
-      <p>
-        De manhã, horário de Brasília, sorteamos um jogo entre os que estão em destaque. Quem
-        abre o site naquele dia vê o mesmo. No dia seguinte muda.
-      </p>
+      <ul>
+        <li>De manhã, horário de Brasília, sorteamos um jogo entre os em destaque.</li>
+        <li>Quem abre o site naquele dia vê o mesmo.</li>
+        <li>No dia seguinte muda.</li>
+      </ul>
 
       <h2>Quem entra na lista</h2>
-      <p>
-        Tem que ser em português, grátis no navegador, com um puzzle por dia compartilhado (mesmo
-        desafio pra todo mundo, não partida online). Se não for isso, fica de fora.
-      </p>
+      <ul>
+        <li>Em português.</li>
+        <li>Grátis no navegador.</li>
+        <li>Um puzzle por dia compartilhado — mesmo desafio pra todo mundo, não partida online.</li>
+      </ul>
+      <p>Se não for isso, fica de fora.</p>
 
       <h2>Como sugerir um jogo</h2>
       <p>

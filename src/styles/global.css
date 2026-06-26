@@ -55,6 +55,11 @@ input {
   width: min(100% - 2rem, 54rem);
 }
 
+main.container--page {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-7);
+}
+
 .container--page > h1 {
   text-align: center;
 }
@@ -67,6 +72,22 @@ input {
 .page-suggest .suggest-note {
   max-width: none;
   margin-inline: 0;
+}
+
+.page-about > h1 {
+  text-align: center;
+}
+
+.page-about > h1,
+.page-about > .page-intro,
+.page-about > .prose {
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.page-about .prose ul {
+  line-height: 1.6;
 }
 
 .page-suggest .suggest-details {
