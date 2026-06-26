@@ -32,7 +32,7 @@ const jsonLd = [
     <PageDeck />
     <DailyHero />
 
-    <section class="catalog-toolbar" aria-label="Buscar e filtrar dles">
+    <section class="catalog-toolbar" aria-label="Buscar e filtrar jogos">
       <label class="catalog-toolbar__field" for="search">
         <span class="catalog-toolbar__label">Buscar</span>
         <input
@@ -59,8 +59,8 @@ const jsonLd = [
       </div>
     </section>
 
-    <p class="section-title">Todos os dles · <a class="section-link" href="/sugerir/">Sugerir jogo</a></p>
-    <section class="dle-grid" id="dle-grid" aria-label="Catálogo de dles">
+    <p class="section-title">Todos os jogos · <a class="section-link" href="/sugerir/">Sugerir jogo</a></p>
+    <section class="dle-grid" id="dle-grid" aria-label="Catálogo de jogos diários">
       {allDles.map((dle) => <DleCard dle={dle} />)}
     </section>
     <p class="empty-state is-hidden" id="empty-state" hidden>
