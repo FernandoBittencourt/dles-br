@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Perguntas sobre a curadoria
-    url: https://github.com/FernandoBittencourt/dles-br/discussions
-    about: Tire dúvidas sem abrir sugestão de jogo.
+  - name: Sobre a curadoria
+    url: https://dles.com.br/sobre/
+    about: Critérios de entrada, sorteio do dia e avisos.
+  - name: Sugerir jogo no site
+    url: https://dles.com.br/sugerir/
+    about: Formulários para jogadores e criadores (conta GitHub gratuita).

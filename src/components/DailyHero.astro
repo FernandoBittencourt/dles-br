@@ -1,43 +1,24 @@
 ---
+import dles from '../data/dles.json';
+import { formatDailyDate, pickDaily } from '../lib/daily-pick';
+import DleTile from './DleTile.astro';
+import type { Dle } from '../lib/types';
+
+const featured = (dles as Dle[]).filter((dle) => dle.featured);
+const pick = pickDaily(featured);
+const dailyDate = formatDailyDate();
 ---
 
-<section class="daily-hero" id="daily-hero" aria-live="polite">
-  <p class="daily-hero__eyebrow" id="daily-date">Carregando sorteio…</p>
+<section class="daily-hero is-ready" id="daily-hero" aria-live="polite">
+  <p class="daily-hero__eyebrow">{dailyDate} · Sorteado do dia</p>
   <div class="daily-hero__body">
-    <div class="daily-tile" id="daily-tile" aria-hidden="true">?</div>
+    <DleTile dle={pick} class="daily-tile" />
     <div class="daily-hero__copy">
-      <h2 class="daily-hero__title" id="daily-name">Sorteado do dia</h2>
-      <p class="daily-hero__description" id="daily-description">
-        Hoje é este. Amanhã a gente sorteia outro.
-      </p>
+      <h2 class="daily-hero__title">{pick.name}</h2>
+      <p class="daily-hero__description">{pick.description}</p>
     </div>
-    <a class="button-primary daily-hero__cta" id="daily-link" href="#">Jogar</a>
+    <a class="button-primary daily-hero__cta" href={pick.url} rel="noopener noreferrer">
+      Jogar {pick.name}
+    </a>
   </div>
 </section>
-
-<script>
-  import dles from '../data/dles.json';
-  import { formatDailyDate, pickDaily } from '../lib/daily-pick';
-  import { mountDleTile } from '../lib/dle-tile';
-  import type { Dle } from '../lib/types';
-
-  const featured = (dles as Dle[]).filter((dle) => dle.featured);
-  const pick = pickDaily(featured);
-
-  const hero = document.getElementById('daily-hero');
-  const dateEl = document.getElementById('daily-date');
-  const tileEl = document.getElementById('daily-tile');
-  const nameEl = document.getElementById('daily-name');
-  const descriptionEl = document.getElementById('daily-description');
-  const linkEl = document.getElementById('daily-link') as HTMLAnchorElement | null;
-
-  if (dateEl) dateEl.textContent = `${formatDailyDate()} · Sorteado do dia`;
-  if (tileEl) mountDleTile(tileEl, pick);
-  if (nameEl) nameEl.textContent = pick.name;
-  if (descriptionEl) descriptionEl.textContent = pick.description;
-  if (linkEl) {
-    linkEl.href = pick.url;
-    linkEl.textContent = `Jogar ${pick.name}`;
-  }
-  hero?.classList.add('is-ready');
-</script>

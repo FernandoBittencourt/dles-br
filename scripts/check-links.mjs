@@ -9,6 +9,11 @@ async function checkUrl(url) {
   }
 }
 
+function isUrlOk(result) {
+  if (result.error) return false;
+  return result.status >= 200 && result.status < 400;
+}
+
 async function favicons(pageUrl) {
   const r = await fetch(pageUrl, { signal: AbortSignal.timeout(20000) });
   const html = await r.text();
@@ -22,15 +27,34 @@ async function favicons(pageUrl) {
   return { status: r.status, hrefs: [...new Set(hrefs)] };
 }
 
+const failures = [];
+
 console.log('=== URL CHECK ===');
 for (const dle of dles) {
   const result = await checkUrl(dle.url);
   console.log(`${dle.name}: ${JSON.stringify(result)}`);
+  if (!isUrlOk(result)) {
+    failures.push({ name: dle.name, url: dle.url, result });
+  }
 }
 
-console.log('\n=== FAVICONS ===');
+console.log('\n=== FAVICONS (informativo) ===');
 const pages = [...new Set(dles.map((d) => d.url))];
 for (const page of pages) {
-  const { status, hrefs } = await favicons(page);
-  console.log(page, status, hrefs);
+  try {
+    const { status, hrefs } = await favicons(page);
+    console.log(page, status, hrefs);
+  } catch (e) {
+    console.log(page, 'error', e.message);
+  }
 }
+
+if (failures.length > 0) {
+  console.error('\n=== LINKS COM FALHA ===');
+  for (const { name, url, result } of failures) {
+    console.error(`${name} (${url}): ${JSON.stringify(result)}`);
+  }
+  process.exit(1);
+}
+
+console.log('\nTodos os links OK.');
