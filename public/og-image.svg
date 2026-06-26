@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="dles.com.br">
+  <rect width="1200" height="630" fill="#f5f4f0"/>
+  <image href="/logo-source.png" x="120" y="115" width="400" height="400" preserveAspectRatio="xMidYMid meet"/>
+  <text x="560" y="290" font-family="system-ui,sans-serif" font-size="88" font-weight="700" fill="#141820" letter-spacing="-2">dles.com.br</text>
+  <text x="560" y="370" font-family="system-ui,sans-serif" font-size="40" fill="#5e6470">Jogos diarios em portugues</text>
+  <text x="560" y="430" font-family="ui-monospace,monospace" font-size="28" font-weight="500" fill="#c2410c" letter-spacing="0.12em">SORTEIO DO DIA - LISTA CURADA</text>
+</svg>
