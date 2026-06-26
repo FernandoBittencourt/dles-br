@@ -2,50 +2,55 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { webPageJsonLd } from '../../lib/seo';
+
+const title = 'Sobre · dles.com.br';
+const description =
+  'O que é um dle, como funciona o sorteio do dia e como mandar sugestão de jogo para a lista.';
+const url = 'https://dles.com.br/sobre/';
 ---
 
-<Layout
-  title="Sobre — dles.com.br"
-  description="O que é um dle, como funciona o sorteio diário e como sugerir jogos para a lista."
->
+<Layout title={title} description={description} jsonLd={webPageJsonLd(title, description, url)}>
   <Header />
-  <main class="container">
+  <main class="container container--page page-about">
     <h1>Sobre</h1>
     <p class="page-intro">
-      Jogos diários em português num lugar só. Um sorteio por dia; a lista completa fica logo abaixo.
+      Jogos diários tipo dle num lugar só. Um sorteio por dia; o resto da lista fica logo abaixo.
     </p>
 
     <div class="prose">
       <h2>O que é um dle?</h2>
-      <p>
-        O nome veio do Wordle e virou apelido para esse tipo de jogo: puzzle no browser, um desafio
-        por dia, igual para quem joga. Você entra, resolve, manda o resultado se quiser e volta
-        amanhã.
-      </p>
+      <ul>
+        <li>Puzzle no browser — veio do Wordle e virou apelido.</li>
+        <li>Um por dia, igual pra quem entra no mesmo dia.</li>
+        <li>Você joga, manda o resultado se quiser e volta amanhã.</li>
+      </ul>
 
       <h2>Sorteado do dia</h2>
-      <p>
-        Todo dia, no horário de Brasília, sorteamos um jogo entre os que estão em destaque na lista.
-        Quem acessa naquele dia vê o mesmo. Amanhã muda.
-      </p>
+      <ul>
+        <li>De manhã, horário de Brasília, sorteamos um jogo entre os em destaque.</li>
+        <li>Quem abre o site naquele dia vê o mesmo.</li>
+        <li>No dia seguinte muda.</li>
+      </ul>
 
       <h2>Quem entra na lista</h2>
-      <p>
-        Interface ou conteúdo em português. Gratuito no navegador. Um puzzle diário compartilhado
-        (mesmo desafio para todos, não partida online).
-      </p>
-      <p>Sem isso, não entra.</p>
+      <ul>
+        <li>Em português.</li>
+        <li>Grátis no navegador.</li>
+        <li>Um puzzle por dia compartilhado — mesmo desafio pra todo mundo, não partida online.</li>
+      </ul>
+      <p>Se não for isso, fica de fora.</p>
 
       <h2>Como sugerir um jogo</h2>
       <p>
-        Tem uma página só para isso: <a href="/sugerir/">Sugerir jogo</a>. Lá tem o formulário
-        público (conta gratuita no GitHub) e o que a curadoria precisa saber.
+        Tem página pra isso: <a href="/sugerir/">Sugerir jogo</a>. Formulário no GitHub (conta
+        grátis) e o que a gente precisa saber pra testar.
       </p>
 
       <h2>Aviso</h2>
       <p>
-        Lista independente. Termo, Wordle, Letreco e os demais são de quem os fez. Não há parceria
-        oficial com nenhum deles.
+        Somos independentes. Termo, Wordle, Letreco e os demais são de quem os fez. Não há
+        parceria oficial com nenhum deles.
       </p>
     </div>
   </main>

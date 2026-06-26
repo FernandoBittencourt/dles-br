@@ -4,7 +4,7 @@
     "name": "CodeDoku",
     "url": "https://codedoku.app/pt",
     "icon": "/icons/codedoku.png",
-    "description": "Puzzle de lógica 3×3 com dicas cruzadas. Coloque cada item na interseção certa.",
+    "description": "Grade 3×3 de lógica: encaixe cada peça onde as dicas se cruzam.",
     "category": "logica",
     "featured": true
   },
@@ -12,15 +12,15 @@
     "id": "drible",
     "name": "Drible",
     "url": "https://drible.ee/",
-    "description": "Adivinhe o jogador de futebol do dia com dicas progressivas.",
+    "description": "Chute o jogador do dia. As dicas vão abrindo conforme você erra.",
     "category": "cultura",
     "featured": true
   },
   {
     "id": "dueto",
     "name": "Dueto",
-    "url": "https://term.ooo/dueto/",
-    "description": "Duas palavras secretas ao mesmo tempo. Uma tentativa serve para os dois tabuleiros.",
+    "url": "https://term.ooo/2/",
+    "description": "Dois tabuleiros, mesma tentativa. Acertar uma palavra ajuda na outra.",
     "category": "palavras",
     "featured": true
   },
@@ -28,7 +28,7 @@
     "id": "elos",
     "name": "Elos",
     "url": "https://letra.games/elos",
-    "description": "Agrupe 16 palavras em quatro conjuntos de quatro. Estilo Connections em português.",
+    "description": "16 palavras, 4 grupos. Tipo Connections, só que em português.",
     "category": "palavras",
     "featured": true
   },
@@ -36,7 +36,7 @@
     "id": "letreco",
     "name": "Letreco",
     "url": "https://www.gabtoschi.com/letreco/",
-    "description": "Descubra a palavra do dia com dicas coloridas. Versão brasileira do Wordle.",
+    "description": "Cinco letras, seis chutes, dicas coloridas. Wordle brasileiro de sempre.",
     "category": "palavras",
     "featured": true
   },
@@ -44,23 +44,23 @@
     "id": "lexico",
     "name": "Léxico",
     "url": "https://letra.games/lexico",
-    "description": "Palavra secreta de cinco letras em português europeu. Parte do Letra.games.",
+    "description": "Mesma ideia do Wordle, com vocabulário de português europeu.",
     "category": "palavras",
     "featured": true
   },
   {
     "id": "quarteto",
     "name": "Quarteto",
-    "url": "https://term.ooo/quarteto/",
-    "description": "Quatro palavras de uma vez. Para quem já domina o Termo e quer mais desafio.",
+    "url": "https://term.ooo/4/",
+    "description": "Quatro palavras secretas de uma vez. Termo quando o Termo já não assusta.",
     "category": "palavras",
     "featured": true
   },
   {
     "id": "sudoku",
     "name": "Sudoku",
-    "url": "https://sudoku.com/pt/diario",
-    "description": "Sudoku diário clássico. Preencha a grade com números de 1 a 9.",
+    "url": "https://sudoku.com/pt/challenges/sudoku-diario",
+    "description": "Sudoku clássico, um por dia. Números de 1 a 9 sem repetir linha, coluna ou bloco.",
     "category": "logica",
     "featured": false
   },
@@ -68,7 +68,7 @@
     "id": "termo",
     "name": "Termo",
     "url": "https://term.ooo/",
-    "description": "Adivinhe a palavra de cinco letras em até seis tentativas. O clássico Wordle em português.",
+    "description": "Cinco letras, seis tentativas. Provavelmente você já conhece.",
     "category": "palavras",
     "featured": true
   },
@@ -76,7 +76,7 @@
     "id": "worldle-pt",
     "name": "Worldle",
     "url": "https://worldle.teuteuf.fr/",
-    "description": "Adivinhe o país ou território pela silhueta. Disponível em português.",
+    "description": "Silhueta de um país ou território. Chuta até encaixar.",
     "category": "geografia",
     "featured": true
   }

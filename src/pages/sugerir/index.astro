@@ -5,27 +5,29 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import {
   CONTRIBUTING_URL,
   CREATOR_SUBMIT_URL,
-  GITHUB_DISCUSSIONS_URL,
   SUGGEST_GAME_URL,
 } from '../../lib/site';
+import { webPageJsonLd } from '../../lib/seo';
+
+const title = 'Sugerir jogo · dles.com.br';
+const description =
+  'Indique um jogo diário em português para entrar na lista do dles.com.br. Formulário para jogadores e criadores.';
+const url = 'https://dles.com.br/sugerir/';
 ---
 
-<Layout
-  title="Sugerir jogo — dles.com.br"
-  description="Indique um jogo diário em português para a lista do dles.com.br."
->
+<Layout title={title} description={description} jsonLd={webPageJsonLd(title, description, url)}>
   <Header />
-  <main class="container">
+  <main class="container container--page page-suggest">
     <h1>Sugerir um jogo</h1>
     <p class="page-intro">
-      Qualquer pessoa pode indicar um dle. Criadores têm formulário próprio e resposta mais rápida —
-      mas entrar na lista depende só dos critérios, não de quem mandou.
+      Qualquer um pode sugerir. Quem criou o jogo tem formulário à parte e costuma ouvir resposta
+      mais cedo, mas os critérios são iguais.
     </p>
 
     <div class="suggest-paths">
       <section class="suggest-path">
-        <h2 class="suggest-path__title">Indique um jogo</h2>
-        <p class="suggest-path__text">Você joga e acha que falta aqui. Não precisa ser o criador.</p>
+        <h2 class="suggest-path__title">Sugerir um jogo</h2>
+        <p class="suggest-path__text">Você joga e sentiu falta aqui. Não precisa ser o dono.</p>
         <a class="button-primary" href={SUGGEST_GAME_URL} rel="noopener noreferrer">
           Abrir formulário
         </a>
@@ -34,7 +36,7 @@ import {
       <section class="suggest-path suggest-path--creator">
         <h2 class="suggest-path__title">Sou o criador</h2>
         <p class="suggest-path__text">
-          Criou ou representa o jogo. Pode enviar logo depois via pull request.
+          Você criou ou representa o jogo. Logo oficial entra depois, num pull request.
         </p>
         <a class="button-secondary" href={CREATOR_SUBMIT_URL} rel="noopener noreferrer">
           Formulário de criador
@@ -46,29 +48,26 @@ import {
     </div>
 
     <p class="suggest-note">
-      Os dois formulários pedem conta gratuita no GitHub. Leva um minuto para criar, se ainda não
-      tiver.
+      Os formulários ficam no GitHub e pedem uma conta gratuita. Se ainda não tiver, dá para criar
+      em poucos minutos.
     </p>
 
-    <div class="prose">
-      <h2>Quem entra na lista</h2>
-      <p>
-        Interface ou conteúdo em português. Gratuito no browser. Um puzzle por dia, igual para
-        quem joga naquele dia.
-      </p>
+    <div class="suggest-details">
+      <section class="suggest-details__item">
+        <h2>Quem entra na lista</h2>
+        <p>
+          Em português, grátis no browser, um puzzle por dia igual pra quem joga naquele dia.
+        </p>
+      </section>
 
-      <h2>Como revisamos</h2>
-      <ul>
-        <li>Issues de <strong>criadores</strong> — resposta mais rápida; critérios iguais.</li>
-        <li>Issues de <strong>sugestão</strong> — fila normal; testamos o jogo antes de incluir.</li>
-        <li>Entrada na lista — só se o jogo passar nos critérios, independente de quem enviou.</li>
-      </ul>
-
-      <h2>Sem GitHub?</h2>
-      <p>
-        Por enquanto os formulários acima são o canal oficial. Alternativa:
-        <a href={GITHUB_DISCUSSIONS_URL}>discussões</a> no repositório (também pede login).
-      </p>
+      <section class="suggest-details__item">
+        <h2>Como revisamos</h2>
+        <p>
+          Criadores costumam ter resposta mais rápida, mas passam pelo mesmo filtro. Sugestões
+          comuns vão pra fila: a gente abre o jogo e testa antes de incluir. Entrar ou não depende
+          do jogo, não de quem mandou.
+        </p>
+      </section>
     </div>
   </main>
   <SiteFooter />
@@ -108,7 +107,6 @@ import {
     color: var(--muted);
     font-size: 0.95rem;
     margin-bottom: var(--space-4);
-    max-width: 32ch;
   }
 
   .suggest-path .button-primary,
@@ -136,16 +134,45 @@ import {
     margin-top: var(--space-4);
     font-size: 0.92rem;
     color: var(--muted);
-    max-width: 52ch;
+    line-height: 1.6;
   }
 
-  .prose a {
+  .suggest-note a {
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
   }
 
-  .prose a:hover {
+  .suggest-note a:hover {
+    text-decoration: underline;
+  }
+
+  .suggest-details {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  .suggest-details__item h2 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .suggest-details__item p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .suggest-details a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .suggest-details a:hover {
     text-decoration: underline;
   }
 </style>

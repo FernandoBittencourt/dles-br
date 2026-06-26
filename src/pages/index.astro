@@ -1,41 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageDeck from '../components/PageDeck.astro';
 import DailyHero from '../components/DailyHero.astro';
 import DleCard from '../components/DleCard.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import dles from '../data/dles.json';
 import type { Dle, DleCategory } from '../lib/types';
 import { CATEGORY_LABELS } from '../lib/types';
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  itemListJsonLd,
+  websiteJsonLd,
+} from '../lib/seo';
 
 const allDles = [...(dles as Dle[])].sort((a, b) =>
   a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }),
 );
 const categories = Object.keys(CATEGORY_LABELS) as DleCategory[];
+
+const jsonLd = [
+  websiteJsonLd(DEFAULT_DESCRIPTION),
+  itemListJsonLd(allDles.map((dle) => ({ name: dle.name, url: dle.url }))),
+];
 ---
 
-<Layout>
+<Layout title={DEFAULT_TITLE} description={DEFAULT_DESCRIPTION} jsonLd={jsonLd}>
   <Header />
   <main class="container container--catalog">
+    <PageDeck />
     <DailyHero />
 
-    <div class="filters" role="toolbar" aria-label="Filtrar por categoria">
-      <button class="filter-chip is-active" type="button" data-filter="all">Todos</button>
-      {
-        categories.map((category) => (
-          <button class="filter-chip" type="button" data-filter={category}>
-            {CATEGORY_LABELS[category]}
-          </button>
-        ))
-      }
-    </div>
+    <section class="catalog-toolbar" aria-label="Buscar e filtrar jogos">
+      <label class="catalog-toolbar__field" for="search">
+        <span class="catalog-toolbar__label">Buscar</span>
+        <input
+          id="search"
+          class="catalog-toolbar__search"
+          type="search"
+          placeholder="Nome ou descrição…"
+          autocomplete="off"
+          data-search-input
+        />
+      </label>
+      <div class="catalog-toolbar__categories">
+        <span class="catalog-toolbar__label" id="category-label">Categoria</span>
+        <div class="filters" role="group" aria-labelledby="category-label">
+          <button class="filter-chip is-active" type="button" data-filter="all">Todos</button>
+          {
+            categories.map((category) => (
+              <button class="filter-chip" type="button" data-filter={category}>
+                {CATEGORY_LABELS[category]}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
-    <p class="section-title">Todos os dles · <a class="section-link" href="/sugerir/">Sugerir jogo</a></p>
-    <section class="dle-grid" id="dle-grid" aria-label="Catálogo de dles">
+    <p class="section-title">Todos os jogos · <a class="section-link" href="/sugerir/">Sugerir jogo</a></p>
+    <section class="dle-grid" id="dle-grid" aria-label="Catálogo de jogos diários">
       {allDles.map((dle) => <DleCard dle={dle} />)}
     </section>
     <p class="empty-state is-hidden" id="empty-state" hidden>
-      Nenhum dle encontrado. Tente outra busca ou categoria.
+      Nada por aqui. Tenta outra busca ou categoria.
     </p>
   </main>
   <SiteFooter />

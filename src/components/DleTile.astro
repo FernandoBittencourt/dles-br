@@ -1,5 +1,9 @@
 ---
-import { getDleInitial, resolveDleIcon } from '../lib/dle-icon';
+import {
+  encodeFaviconCandidates,
+  getDleInitial,
+  resolveDleIcon,
+} from '../lib/dle-icon';
 import type { Dle } from '../lib/types';
 
 interface Props {
@@ -8,7 +12,7 @@ interface Props {
 }
 
 const { dle, class: className = 'dle-card__tile' } = Astro.props;
-const { src, kind } = resolveDleIcon(dle);
+const { src, kind, faviconCandidates } = resolveDleIcon(dle);
 const initial = getDleInitial(dle.name);
 ---
 
@@ -18,11 +22,12 @@ const initial = getDleInitial(dle.name);
     class="dle-tile__icon"
     data-dle-icon
     data-icon-kind={kind}
+    data-favicon-candidates={faviconCandidates ? encodeFaviconCandidates(faviconCandidates) : undefined}
     src={src}
     alt=""
     width="32"
     height="32"
-    loading="lazy"
+    loading="eager"
     decoding="async"
   />
 </div>

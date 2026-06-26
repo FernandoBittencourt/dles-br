@@ -1,19 +1,26 @@
 ---
+import brandLogo from '../assets/brand-logo.png';
 ---
 
 <header class="site-header">
-  <div class="container site-header__inner">
-    <a class="brand" href="/">dles.com.br</a>
+  <div class="container container--page site-header__inner">
+    <a class="brand" href="/">
+      <span class="brand__tile" aria-hidden="true">
+        <img
+          class="brand__mark"
+          src={brandLogo.src}
+          alt=""
+          width={32}
+          height={32}
+          decoding="async"
+        />
+      </span>
+      <span class="brand__lockup">
+        <span class="brand__text">dles.com.br</span>
+        <span class="brand__tagline">Hub de jogos diários em português</span>
+      </span>
+    </a>
     <div class="header-actions">
-      <label class="sr-only" for="search">Buscar dles</label>
-      <input
-        id="search"
-        class="search-input"
-        type="search"
-        placeholder="Buscar…"
-        autocomplete="off"
-        data-search-input
-      />
       <button
         class="icon-button"
         type="button"
