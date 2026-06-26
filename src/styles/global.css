@@ -526,6 +526,10 @@ input {
   margin-inline: auto;
 }
 
+.site-footer p + p {
+  margin-top: var(--space-2);
+}
+
 .site-footer a {
   color: var(--ink);
 }
