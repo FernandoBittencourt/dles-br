@@ -111,6 +111,55 @@ input {
   line-height: 1;
 }
 
+.brand__lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.brand__tagline {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.page-deck {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-5);
+  text-align: center;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.page-deck__lead {
+  font-family: var(--font-display);
+  font-size: clamp(0.98rem, 2.2vw, 1.28rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+@media (min-width: 32rem) {
+  .page-deck__lead {
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+}
+
+.page-deck__sub {
+  margin-top: var(--space-2);
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.4;
+  max-width: 40ch;
+  margin-inline: auto;
+}
+
 .header-actions {
   display: flex;
   align-items: center;

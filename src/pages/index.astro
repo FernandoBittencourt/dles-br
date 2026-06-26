@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageDeck from '../components/PageDeck.astro';
 import DailyHero from '../components/DailyHero.astro';
 import DleCard from '../components/DleCard.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -17,6 +18,7 @@ const categories = Object.keys(CATEGORY_LABELS) as DleCategory[];
 <Layout>
   <Header />
   <main class="container container--catalog">
+    <PageDeck />
     <DailyHero />
 
     <section class="catalog-toolbar" aria-label="Buscar e filtrar dles">
