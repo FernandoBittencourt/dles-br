@@ -19,16 +19,32 @@ const categories = Object.keys(CATEGORY_LABELS) as DleCategory[];
   <main class="container container--catalog">
     <DailyHero />
 
-    <div class="filters" role="toolbar" aria-label="Filtrar por categoria">
-      <button class="filter-chip is-active" type="button" data-filter="all">Todos</button>
-      {
-        categories.map((category) => (
-          <button class="filter-chip" type="button" data-filter={category}>
-            {CATEGORY_LABELS[category]}
-          </button>
-        ))
-      }
-    </div>
+    <section class="catalog-toolbar" aria-label="Buscar e filtrar dles">
+      <label class="catalog-toolbar__field" for="search">
+        <span class="catalog-toolbar__label">Buscar</span>
+        <input
+          id="search"
+          class="catalog-toolbar__search"
+          type="search"
+          placeholder="Nome ou descrição…"
+          autocomplete="off"
+          data-search-input
+        />
+      </label>
+      <div class="catalog-toolbar__categories">
+        <span class="catalog-toolbar__label" id="category-label">Categoria</span>
+        <div class="filters" role="group" aria-labelledby="category-label">
+          <button class="filter-chip is-active" type="button" data-filter="all">Todos</button>
+          {
+            categories.map((category) => (
+              <button class="filter-chip" type="button" data-filter={category}>
+                {CATEGORY_LABELS[category]}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <p class="section-title">Todos os dles · <a class="section-link" href="/sugerir/">Sugerir jogo</a></p>
     <section class="dle-grid" id="dle-grid" aria-label="Catálogo de dles">
