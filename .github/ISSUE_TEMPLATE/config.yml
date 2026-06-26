@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Perguntas sobre a curadoria
+    url: https://github.com/FernandoBittencourt/dles-br/discussions
+    about: Tire dúvidas sem abrir sugestão de jogo.

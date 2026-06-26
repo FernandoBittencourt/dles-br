@@ -1,0 +1,54 @@
+name: Sugerir jogo
+description: Indique um dle que você joga — não precisa ser o criador
+title: '[Sugestão] '
+labels:
+  - sugestão
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a curar dles em português. A curadoria revisa manualmente; nem todo jogo entra.
+
+  - type: input
+    id: name
+    attributes:
+      label: Nome do jogo
+      placeholder: 'Ex.: Termo'
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL para jogar
+      placeholder: 'https://'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Idioma
+      options:
+        - PT-BR
+        - PT-PT
+        - Ambos
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Por que é um dle?
+      description: Puzzle diário, gratuito no navegador, mesmo desafio para todo mundo.
+      placeholder: 'Ex.: palavra do dia, seis tentativas, resultado para compartilhar.'
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Observações
+      description: Opcional — categoria, jogos parecidos, etc.
+    validations:
+      required: false

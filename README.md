@@ -14,7 +14,7 @@ Jogo web com um puzzle por dia, compartilhado por todos os jogadores. Você reso
 
 ### Sugerir um jogo (sem código)
 
-Abra uma [issue](https://github.com/FernandoBittencourt/dles-br/issues/new) com:
+Abra uma [issue](https://github.com/FernandoBittencourt/dles-br/issues/new?template=sugerir-jogo.yml) com:
 
 - Nome e URL do jogo
 - Idioma (PT-BR, PT-PT ou ambos)
@@ -40,6 +40,7 @@ Campos em `dles.json`:
 | `description` | Uma frase em português (texto original, sem copiar marketing) |
 | `category` | `palavras`, `logica`, `geografia`, `cultura`, `outros` |
 | `featured` | `true` se entra no sorteio diário |
+| `icon` | *(opcional)* Logo em `public/icons/`, **somente se você é o criador** no PR. Sem isso, o site usa o favicon do jogo |
 
 ## Rodar localmente
 

@@ -6,49 +6,60 @@ import SiteFooter from '../../components/SiteFooter.astro';
 
 <Layout
   title="Sobre — dles.com.br"
-  description="O que é um dle, como funciona esta curadoria e como sugerir jogos."
+  description="O que é um dle, como funciona o sorteio diário e como sugerir jogos para a lista."
 >
   <Header />
   <main class="container">
     <h1>Sobre</h1>
     <p class="page-intro">
-      O dles.com.br reúne jogos diários em português — dles — num só lugar. Um sorteio por
-      dia, lista curada, links diretos.
+      Jogos diários em português num lugar só. Um sorteio por dia; a lista completa fica logo abaixo.
     </p>
 
     <div class="prose">
       <h2>O que é um dle?</h2>
       <p>
-        Um dle é um jogo web com um desafio por dia, igual para todo mundo — no estilo Wordle.
-        Você joga, compartilha o resultado e volta amanhã.
+        O nome veio do Wordle e virou apelido para esse tipo de jogo: puzzle no browser, um desafio
+        por dia, igual para quem joga. Você entra, resolve, manda o resultado se quiser e volta
+        amanhã.
       </p>
 
-      <h2>Como funciona o sorteado do dia?</h2>
+      <h2>Sorteado do dia</h2>
       <p>
-        Todo dia (horário de Brasília), um jogo da lista em destaque é sorteado. Mesmo jogo
-        para todos os visitantes naquele dia.
+        Todo dia, no horário de Brasília, sorteamos um jogo entre os que estão em destaque na lista.
+        Quem acessa naquele dia vê o mesmo. Amanhã muda.
       </p>
 
-      <h2>Curadoria</h2>
-      <p>Entram jogos que:</p>
-      <ul>
-        <li>tenham interface ou conteúdo em português;</li>
-        <li>sejam gratuitos para jogar no navegador;</li>
-        <li>tenham um puzzle diário compartilhado.</li>
-      </ul>
-
-      <h2>Como sugerir um dle</h2>
+      <h2>Quem entra na lista</h2>
       <p>
-        O projeto é open source. Abra uma issue ou pull request no GitHub com nome, URL e
-        descrição curta do jogo.
+        Interface ou conteúdo em português. Gratuito no navegador. Um puzzle diário compartilhado
+        (mesmo desafio para todos, não partida online).
+      </p>
+      <p>Sem isso, não entra.</p>
+
+      <h2>Como sugerir um jogo</h2>
+      <p>
+        Tem uma página só para isso: <a href="/sugerir/">Sugerir jogo</a>. Lá tem o formulário
+        público (conta gratuita no GitHub) e o que a curadoria precisa saber.
       </p>
 
       <h2>Aviso</h2>
       <p>
-        Esta é uma curadoria independente. Wordle, Termo, Letreco e demais marcas pertencem
-        aos respectivos criadores. Não há afiliação oficial.
+        Lista independente. Termo, Wordle, Letreco e os demais são de quem os fez. Não há parceria
+        oficial com nenhum deles.
       </p>
     </div>
   </main>
   <SiteFooter />
 </Layout>
+
+<style>
+  .prose a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,4 +1,5 @@
 ---
+import DleTile from './DleTile.astro';
 import type { Dle } from '../lib/types';
 import { CATEGORY_LABELS } from '../lib/types';
 
@@ -16,15 +17,13 @@ const { dle } = Astro.props;
   data-name={dle.name.toLowerCase()}
   data-description={dle.description.toLowerCase()}
 >
-  <div class="dle-card__accent" aria-hidden="true"></div>
-  <div class="dle-card__content">
-    <div class="dle-card__header">
-      <h2 class="dle-card__name">{dle.name}</h2>
+  <a class="dle-card__surface" href={dle.url} rel="noopener noreferrer">
+    <div class="dle-card__top">
+      <DleTile dle={dle} />
       <span class="dle-card__category">{CATEGORY_LABELS[dle.category]}</span>
     </div>
+    <h2 class="dle-card__name">{dle.name}</h2>
     <p class="dle-card__description">{dle.description}</p>
-    <a class="dle-card__link" href={dle.url} rel="noopener noreferrer">
-      Abrir jogo →
-    </a>
-  </div>
+    <span class="dle-card__cta">Jogar →</span>
+  </a>
 </article>

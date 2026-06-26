@@ -18,11 +18,11 @@
 <script>
   import dles from '../data/dles.json';
   import { formatDailyDate, pickDaily } from '../lib/daily-pick';
+  import { mountDleTile } from '../lib/dle-tile';
   import type { Dle } from '../lib/types';
 
   const featured = (dles as Dle[]).filter((dle) => dle.featured);
   const pick = pickDaily(featured);
-  const initial = pick.name.trim().charAt(0).toUpperCase() || '?';
 
   const hero = document.getElementById('daily-hero');
   const dateEl = document.getElementById('daily-date');
@@ -32,7 +32,7 @@
   const linkEl = document.getElementById('daily-link') as HTMLAnchorElement | null;
 
   if (dateEl) dateEl.textContent = `${formatDailyDate()} · Sorteado do dia`;
-  if (tileEl) tileEl.textContent = initial;
+  if (tileEl) mountDleTile(tileEl, pick);
   if (nameEl) nameEl.textContent = pick.name;
   if (descriptionEl) descriptionEl.textContent = pick.description;
   if (linkEl) {

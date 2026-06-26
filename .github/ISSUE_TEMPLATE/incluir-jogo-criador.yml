@@ -1,0 +1,67 @@
+name: Incluir jogo (criador)
+description: Você criou ou representa o jogo e quer entrar na lista
+title: '[Criador] '
+labels:
+  - criador
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Formulário para quem **criou ou representa** o jogo. Respondemos mais rápido, mas os critérios de curadoria são os mesmos para todos.
+
+        Para incluir **logo oficial**, abra também um [pull request](https://github.com/FernandoBittencourt/dles-br/blob/main/CONTRIBUTING.md) com o jogo em `dles.json` e o arquivo em `public/icons/`.
+
+  - type: input
+    id: name
+    attributes:
+      label: Nome do jogo
+      placeholder: 'Ex.: Meu Dle'
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL para jogar
+      placeholder: 'https://'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Idioma
+      options:
+        - PT-BR
+        - PT-PT
+        - Ambos
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Como funciona o puzzle diário?
+      description: Gratuito no navegador, mesmo desafio para todos no mesmo dia.
+      placeholder: 'Ex.: uma palavra por dia, seis tentativas, PT-BR.'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pr
+    attributes:
+      label: Vai enviar pull request?
+      options:
+        - Ainda não — só este formulário por enquanto
+        - Sim — logo ou dados no PR em seguida
+        - Não — prefiro que a curadoria adicione
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Observações
+      description: Opcional — contato, categoria, link da logo, etc.
+    validations:
+      required: false

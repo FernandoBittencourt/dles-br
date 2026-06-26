@@ -3,6 +3,7 @@
     "id": "codedoku",
     "name": "CodeDoku",
     "url": "https://codedoku.app/pt",
+    "icon": "/icons/codedoku.png",
     "description": "Puzzle de lógica 3×3 com dicas cruzadas. Coloque cada item na interseção certa.",
     "category": "logica",
     "featured": true

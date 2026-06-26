@@ -50,6 +50,10 @@ input {
   margin-inline: auto;
 }
 
+.container--catalog {
+  width: min(100% - 2rem, 54rem);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -149,6 +153,8 @@ input {
   font-size: 2rem;
   color: var(--accent);
   box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
 }
 
 .daily-hero.is-ready .daily-tile {
@@ -185,7 +191,7 @@ input {
   border: none;
   border-radius: var(--radius-sm);
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-on);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -193,6 +199,24 @@ input {
 
 .button-primary:hover {
   background: var(--accent-hover);
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-secondary:hover {
+  background: var(--accent-soft);
 }
 
 .filters {
@@ -225,61 +249,147 @@ input {
   margin-bottom: var(--space-3);
 }
 
+.section-link {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.section-link:hover {
+  text-decoration: underline;
+}
+
 .dle-grid {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
   margin-bottom: var(--space-7);
 }
 
+@media (min-width: 40rem) {
+  .dle-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
 .dle-card {
-  display: grid;
-  grid-template-columns: 4px 1fr;
   border: 1px solid var(--line);
+  border-top: 3px solid var(--cat-color, var(--cat-outros));
   border-radius: var(--radius-md);
   background: var(--surface);
-  overflow: hidden;
   box-shadow: var(--shadow-soft);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
-.dle-card__accent {
-  background: var(--cat-color, var(--cat-outros));
+.dle-card:hover {
+  border-color: color-mix(in srgb, var(--cat-color, var(--cat-outros)) 35%, var(--line));
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--ink) 8%, transparent);
+  transform: translateY(-2px);
 }
 
-.dle-card__content {
-  padding: var(--space-4);
-}
-
-.dle-card__header {
+.dle-card__surface {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-bottom: var(--space-2);
+  flex-direction: column;
+  height: 100%;
+  min-height: 11rem;
+  padding: var(--space-4);
+  text-decoration: none;
+  color: inherit;
 }
 
-.dle-card__name {
+.dle-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.dle-card__tile {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  border: 2px solid color-mix(in srgb, var(--cat-color, var(--cat-outros)) 40%, var(--line));
+  background: var(--paper);
+  display: grid;
+  place-items: center;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--cat-color, var(--cat-outros));
+  position: relative;
+  overflow: hidden;
+}
+
+.dle-tile__initial {
+  line-height: 1;
+}
+
+.dle-tile__icon {
+  display: none;
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
+}
+
+.daily-tile .dle-tile__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.daily-tile .dle-tile__initial {
+  font-size: 2rem;
+}
+
+.is-loaded .dle-tile__initial {
+  display: none;
+}
+
+.is-loaded .dle-tile__icon {
+  display: block;
 }
 
 .dle-card__category {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--cat-color, var(--cat-outros));
+  text-align: right;
+  line-height: 1.3;
+}
+
+.dle-card__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-top: var(--space-3);
+  line-height: 1.2;
 }
 
 .dle-card__description {
+  flex: 1;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-top: var(--space-2);
   margin-bottom: var(--space-3);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
-.dle-card__link {
+.dle-card__cta {
   font-weight: 600;
+  font-size: 0.875rem;
   color: var(--accent);
-  text-decoration: none;
+  margin-top: auto;
 }
 
 .dle-card.is-hidden,

@@ -7,6 +7,8 @@ export interface Dle {
   description: string;
   category: DleCategory;
   featured: boolean;
+  /** Logo em public/icons/, enviada pelo criador no PR. Sem isso, usamos o favicon do site. */
+  icon?: string;
 }
 
 export const CATEGORY_LABELS: Record<DleCategory, string> = {
