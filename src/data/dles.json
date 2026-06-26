@@ -9,6 +9,22 @@
     "featured": true
   },
   {
+    "id": "conexo",
+    "name": "Conexo",
+    "url": "https://conexo.ws/",
+    "description": "16 palavras, 4 grupos. Descubra o tema que liga cada quarteto.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "contexto",
+    "name": "Contexto",
+    "url": "https://contexto.me/",
+    "description": "Chute palavras até achar a secreta. O jogo mostra o quão perto você está, não as letras.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
     "id": "drible",
     "name": "Drible",
     "url": "https://drible.ee/",

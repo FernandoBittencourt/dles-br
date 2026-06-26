@@ -2,7 +2,7 @@
 
 Curadoria **independente** de jogos diários em português — dles no estilo Wordle.
 
-**Site:** [dles.com.br](https://dles.com.br)
+**Site:** [dles.com.br](https://dles.com.br) · [Sobre](https://dles.com.br/sobre/) · [Sugerir jogo](https://dles.com.br/sugerir/)
 
 Cada dia um jogo é sorteado entre os listados; abaixo, a lista completa com links para jogar no navegador. Mesmas regras para todos: critérios públicos, sem destaque pago.
 
@@ -12,23 +12,36 @@ Jogo web com um puzzle por dia, compartilhado por todos os jogadores. Você reso
 
 ## Como contribuir
 
-### Sugerir um jogo (sem código)
+Os formulários de sugestão ficam no GitHub e exigem uma **conta gratuita**. Critérios completos e fluxo de código em [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-Abra uma [issue](https://github.com/FernandoBittencourt/dles-br/issues/new?template=sugerir-jogo.yml) com:
+### Sugerir um jogo (jogadores)
 
-- Nome e URL do jogo
-- Idioma (PT-BR, PT-PT ou ambos)
+Qualquer pessoa pode [indicar um jogo](https://github.com/FernandoBittencourt/dles-br/issues/new?template=sugerir-jogo.yml) que joga:
+
+- Nome do jogo
+- URL
 - Por que é um dle (puzzle diário, gratuito no browser, mesmo desafio para todos)
+- Idioma (PT-BR, PT-PT ou ambos)
 
-A curadoria decide se entra na lista.
+A curadoria testa e adiciona se passar nos critérios.
 
-### Adicionar via pull request
+### Incluir jogo (criadores)
 
-1. Faça fork deste repositório
-2. Clone o fork e crie uma branch
-3. Edite `src/data/dles.json` (veja campos abaixo)
-4. Confira os critérios em [CONTRIBUTING.md](./CONTRIBUTING.md)
-5. Abra um PR com nome, URL e justificativa curta
+Se você **criou ou representa** o jogo, use o [formulário de criador](https://github.com/FernandoBittencourt/dles-br/issues/new?template=incluir-jogo-criador.yml).
+
+Respondemos criadores mais rápido, mas **os critérios de entrada são os mesmos** para todos. Para incluir **logo oficial**, abra também um pull request conforme [CONTRIBUTING.md](./CONTRIBUTING.md) (`dles.json` + `public/icons/`).
+
+### Adicionar via pull request (código)
+
+Para contribuir com código ou enviar logo junto com o jogo:
+
+1. Faça fork e clone deste repositório.
+2. Crie a branch a partir de `develop`: `git checkout develop && git pull && git checkout -b feat/jogo-exemplo`
+3. Edite `src/data/dles.json` (veja campos abaixo) e confira os critérios em [CONTRIBUTING.md](./CONTRIBUTING.md).
+4. Abra o PR para **`develop`**, não para `main`.
+5. Um PR = uma mudança (um jogo ou uma feature).
+
+O maintainer publica em produção com merge `develop` → `main`. Correção urgente em produção: branch `fix/...` → PR para `main`; depois sincronize `main` em `develop`.
 
 Campos em `dles.json`:
 
