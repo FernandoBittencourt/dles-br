@@ -1,0 +1,30 @@
+---
+import type { Dle } from '../lib/types';
+import { CATEGORY_LABELS } from '../lib/types';
+
+interface Props {
+  dle: Dle;
+}
+
+const { dle } = Astro.props;
+---
+
+<article
+  class={`dle-card cat-${dle.category}`}
+  data-dle-card
+  data-category={dle.category}
+  data-name={dle.name.toLowerCase()}
+  data-description={dle.description.toLowerCase()}
+>
+  <div class="dle-card__accent" aria-hidden="true"></div>
+  <div class="dle-card__content">
+    <div class="dle-card__header">
+      <h2 class="dle-card__name">{dle.name}</h2>
+      <span class="dle-card__category">{CATEGORY_LABELS[dle.category]}</span>
+    </div>
+    <p class="dle-card__description">{dle.description}</p>
+    <a class="dle-card__link" href={dle.url} rel="noopener noreferrer">
+      Abrir jogo →
+    </a>
+  </div>
+</article>

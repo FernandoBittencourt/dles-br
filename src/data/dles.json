@@ -1,0 +1,82 @@
+[
+  {
+    "id": "codedoku",
+    "name": "CodeDoku",
+    "url": "https://codedoku.app/pt",
+    "description": "Puzzle de lógica 3×3 com dicas cruzadas. Coloque cada item na interseção certa.",
+    "category": "logica",
+    "featured": true
+  },
+  {
+    "id": "drible",
+    "name": "Drible",
+    "url": "https://drible.ee/",
+    "description": "Adivinhe o jogador de futebol do dia com dicas progressivas.",
+    "category": "cultura",
+    "featured": true
+  },
+  {
+    "id": "dueto",
+    "name": "Dueto",
+    "url": "https://term.ooo/dueto/",
+    "description": "Duas palavras secretas ao mesmo tempo. Uma tentativa serve para os dois tabuleiros.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "elos",
+    "name": "Elos",
+    "url": "https://letra.games/elos",
+    "description": "Agrupe 16 palavras em quatro conjuntos de quatro. Estilo Connections em português.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "letreco",
+    "name": "Letreco",
+    "url": "https://www.gabtoschi.com/letreco/",
+    "description": "Descubra a palavra do dia com dicas coloridas. Versão brasileira do Wordle.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "lexico",
+    "name": "Léxico",
+    "url": "https://letra.games/lexico",
+    "description": "Palavra secreta de cinco letras em português europeu. Parte do Letra.games.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "quarteto",
+    "name": "Quarteto",
+    "url": "https://term.ooo/quarteto/",
+    "description": "Quatro palavras de uma vez. Para quem já domina o Termo e quer mais desafio.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "sudoku",
+    "name": "Sudoku",
+    "url": "https://sudoku.com/pt/diario",
+    "description": "Sudoku diário clássico. Preencha a grade com números de 1 a 9.",
+    "category": "logica",
+    "featured": false
+  },
+  {
+    "id": "termo",
+    "name": "Termo",
+    "url": "https://term.ooo/",
+    "description": "Adivinhe a palavra de cinco letras em até seis tentativas. O clássico Wordle em português.",
+    "category": "palavras",
+    "featured": true
+  },
+  {
+    "id": "worldle-pt",
+    "name": "Worldle",
+    "url": "https://worldle.teuteuf.fr/",
+    "description": "Adivinhe o país ou território pela silhueta. Disponível em português.",
+    "category": "geografia",
+    "featured": true
+  }
+]
