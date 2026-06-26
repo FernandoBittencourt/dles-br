@@ -2,9 +2,10 @@ export const SITE_NAME = 'dles.com.br';
 export const SITE_URL = 'https://dles.com.br';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
-export const DEFAULT_TITLE = 'dles.com.br · Hub de jogos diários tipo dle';
+export const DEFAULT_TITLE =
+  'Jogos diários tipo Wordle em português · dles.com.br';
 export const DEFAULT_DESCRIPTION =
-  'Termo, Letreco, Elos e mais: sorteio do dia e lista curada de jogos diários tipo dle em português.';
+  'Termo, Contexto, Conexo, Letreco e mais: sorteio do dia e lista curada de jogos diários em português. Grátis no navegador.';
 
 export type JsonLd = Record<string, unknown>;
 
