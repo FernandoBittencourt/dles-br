@@ -2,6 +2,21 @@ import type { Dle } from './types';
 
 export type DleIconKind = 'logo' | 'favicon';
 
+/** Favicons conhecidos por host (antes dos genéricos). */
+const SITE_FAVICONS: Record<string, string[]> = {
+  'term.ooo': ['/icon.png'],
+  'www.gabtoschi.com': [
+    '/letreco/favicon.ico',
+    '/letreco/icons/32x32.png',
+    '/letreco/icons/192x192.png',
+  ],
+  'letra.games': ['/favicon.ico'],
+  'worldle.teuteuf.fr': ['/logo192.png', '/img/favicon.144x144.png'],
+  'codedoku.app': ['/favicon-32x32.png', '/apple-touch-icon.png', '/favicon.ico'],
+  'sudoku.com': ['/favicon-32x32.png', '/apple-touch-icon.png', '/favicon-96x96.png'],
+  'drible.ee': ['/favicon.ico', '/favicon.png', '/apple-touch-icon.png'],
+};
+
 export function getDleInitial(name: string): string {
   return name.trim().charAt(0).toUpperCase() || '?';
 }
@@ -13,17 +28,29 @@ export function getFaviconCandidates(gameUrl: string): string[] {
   const dir =
     pathname.endsWith('/') ? pathname : pathname.replace(/\/[^/]*$/, '/') || '/';
 
-  const candidates = [
-    `https://icons.duckduckgo.com/ip3/${hostname}.ico`,
-    `${origin}/favicon.ico`,
-    `${origin}/favicon.png`,
-    `${origin}/icon.png`,
-    `${origin}/apple-touch-icon.png`,
-  ];
+  const candidates: string[] = [];
+
+  for (const path of SITE_FAVICONS[hostname] ?? []) {
+    candidates.push(`${origin}${path}`);
+  }
 
   if (dir !== '/') {
-    candidates.splice(1, 0, `${origin}${dir}favicon.ico`);
+    candidates.push(
+      `${origin}${dir}favicon.ico`,
+      `${origin}${dir}icons/32x32.png`,
+      `${origin}${dir}favicon-32x32.png`,
+    );
   }
+
+  candidates.push(
+    `${origin}/favicon.ico`,
+    `${origin}/favicon-32x32.png`,
+    `${origin}/favicon.png`,
+    `${origin}/apple-touch-icon.png`,
+    `${origin}/icon.png`,
+  );
+
+  candidates.push(`https://icons.duckduckgo.com/ip3/${hostname}.ico`);
 
   return [...new Set(candidates)];
 }

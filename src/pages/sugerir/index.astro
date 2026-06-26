@@ -11,21 +11,21 @@ import {
 ---
 
 <Layout
-  title="Sugerir jogo — dles.com.br"
-  description="Indique um jogo diário em português para a lista do dles.com.br."
+  title="Sugerir jogo · dles.com.br"
+  description="Manda um jogo diário em português que ainda não está na lista."
 >
   <Header />
   <main class="container container--page">
     <h1>Sugerir um jogo</h1>
     <p class="page-intro">
-      Qualquer pessoa pode indicar um dle. Criadores têm formulário próprio e resposta mais rápida —
-      mas entrar na lista depende só dos critérios, não de quem mandou.
+      Qualquer um pode sugerir. Quem criou o jogo tem formulário à parte e costuma ouvir resposta
+      mais cedo, mas os critérios são iguais.
     </p>
 
     <div class="suggest-paths">
       <section class="suggest-path">
-        <h2 class="suggest-path__title">Indique um jogo</h2>
-        <p class="suggest-path__text">Você joga e acha que falta aqui. Não precisa ser o criador.</p>
+        <h2 class="suggest-path__title">Sugerir um jogo</h2>
+        <p class="suggest-path__text">Você joga e sentiu falta aqui. Não precisa ser o dono.</p>
         <a class="button-primary" href={SUGGEST_GAME_URL} rel="noopener noreferrer">
           Abrir formulário
         </a>
@@ -34,7 +34,7 @@ import {
       <section class="suggest-path suggest-path--creator">
         <h2 class="suggest-path__title">Sou o criador</h2>
         <p class="suggest-path__text">
-          Criou ou representa o jogo. Pode enviar logo depois via pull request.
+          Você criou ou representa o jogo. Logo oficial entra depois, num pull request.
         </p>
         <a class="button-secondary" href={CREATOR_SUBMIT_URL} rel="noopener noreferrer">
           Formulário de criador
@@ -46,28 +46,26 @@ import {
     </div>
 
     <p class="suggest-note">
-      Os dois formulários pedem conta gratuita no GitHub. Leva um minuto para criar, se ainda não
-      tiver.
+      Os dois formulários pedem conta no GitHub. Se ainda não tiver, dá pra criar em um minuto.
     </p>
 
     <div class="prose">
       <h2>Quem entra na lista</h2>
       <p>
-        Interface ou conteúdo em português. Gratuito no browser. Um puzzle por dia, igual para
-        quem joga naquele dia.
+        Em português, grátis no browser, um puzzle por dia igual pra quem joga naquele dia.
       </p>
 
       <h2>Como revisamos</h2>
-      <ul>
-        <li>Issues de <strong>criadores</strong> — resposta mais rápida; critérios iguais.</li>
-        <li>Issues de <strong>sugestão</strong> — fila normal; testamos o jogo antes de incluir.</li>
-        <li>Entrada na lista — só se o jogo passar nos critérios, independente de quem enviou.</li>
-      </ul>
+      <p>
+        Criadores costumam ter resposta mais rápida, mas passam pelo mesmo filtro. Sugestões
+        comuns vão pra fila: a gente abre o jogo e testa antes de incluir. Entrar ou não depende
+        do jogo, não de quem mandou.
+      </p>
 
       <h2>Sem GitHub?</h2>
       <p>
-        Por enquanto os formulários acima são o canal oficial. Alternativa:
-        <a href={GITHUB_DISCUSSIONS_URL}>discussões</a> no repositório (também pede login).
+        Por enquanto os formulários acima são o canal. Dá também pra escrever nas
+        <a href={GITHUB_DISCUSSIONS_URL}>discussões</a> do repo (login de novo).
       </p>
     </div>
   </main>
