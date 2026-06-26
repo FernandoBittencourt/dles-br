@@ -8,14 +8,25 @@ import SiteFooter from '../components/SiteFooter.astro';
 import dles from '../data/dles.json';
 import type { Dle, DleCategory } from '../lib/types';
 import { CATEGORY_LABELS } from '../lib/types';
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  itemListJsonLd,
+  websiteJsonLd,
+} from '../lib/seo';
 
 const allDles = [...(dles as Dle[])].sort((a, b) =>
   a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }),
 );
 const categories = Object.keys(CATEGORY_LABELS) as DleCategory[];
+
+const jsonLd = [
+  websiteJsonLd(DEFAULT_DESCRIPTION),
+  itemListJsonLd(allDles.map((dle) => ({ name: dle.name, url: dle.url }))),
+];
 ---
 
-<Layout>
+<Layout title={DEFAULT_TITLE} description={DEFAULT_DESCRIPTION} jsonLd={jsonLd}>
   <Header />
   <main class="container container--catalog">
     <PageDeck />

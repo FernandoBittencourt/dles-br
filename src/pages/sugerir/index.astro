@@ -8,12 +8,15 @@ import {
   GITHUB_DISCUSSIONS_URL,
   SUGGEST_GAME_URL,
 } from '../../lib/site';
+import { webPageJsonLd } from '../../lib/seo';
+
+const title = 'Sugerir jogo · dles.com.br';
+const description =
+  'Indique um jogo diário em português para entrar na lista do dles.com.br. Formulário para jogadores e criadores.';
+const url = 'https://dles.com.br/sugerir/';
 ---
 
-<Layout
-  title="Sugerir jogo · dles.com.br"
-  description="Manda um jogo diário em português que ainda não está na lista."
->
+<Layout title={title} description={description} jsonLd={webPageJsonLd(title, description, url)}>
   <Header />
   <main class="container container--page">
     <h1>Sugerir um jogo</h1>

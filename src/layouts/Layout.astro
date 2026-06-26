@@ -1,18 +1,34 @@
 ---
 import brandLogo from '../assets/brand-logo.png';
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_TITLE,
+  type JsonLd,
+} from '../lib/seo';
 
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: JsonLd | JsonLd[];
 }
 
 const {
-  title = 'dles.com.br · Hub de jogos diários em português',
-  description = 'O hub de dles em português: sorteio do dia, lista curada e links para jogar no browser.',
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  ogImage = DEFAULT_OG_IMAGE,
+  noindex = false,
+  jsonLd,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL('/og-image.png', Astro.site);
+const jsonLdBlocks = jsonLd
+  ? Array.isArray(jsonLd)
+    ? jsonLd
+    : [jsonLd]
+  : [];
 ---
 
 <!doctype html>
@@ -21,6 +37,8 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta name="theme-color" content="#f5f4f0" />
     <link rel="icon" href={brandLogo.src} type="image/png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -31,17 +49,26 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="dles.com.br — hub de jogos diários em português" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="dles.com.br — hub de jogos diários em português" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    {
+      jsonLdBlocks.map((block) => (
+        <script type="application/ld+json" set:html={JSON.stringify(block)} />
+      ))
+    }
     <title>{title}</title>
     <script is:inline>
       (function () {
