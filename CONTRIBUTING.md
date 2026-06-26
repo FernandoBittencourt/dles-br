@@ -19,6 +19,26 @@ Se você **criou ou representa** o jogo, use o [formulário de criador](https://
 
 Respondemos criadores mais rápido, mas **os critérios de entrada são os mesmos** para todos.
 
+## Branches
+
+| Branch | Uso |
+|--------|-----|
+| `main` | Produção — deploy automático no GitHub Pages |
+| `develop` | Integração — agrupa features antes de publicar |
+| `feat/jogo-<slug>` | Um jogo novo (ex.: `feat/jogo-termo`) |
+| `feat/<nome>` | Mudança no site (ex.: `feat/pagina-sugerir`) |
+| `fix/<nome>` | Correção urgente em produção |
+
+### Fluxo de contribuição
+
+1. Faça fork e clone do repositório.
+2. Crie a branch a partir de `develop`: `git checkout develop && git pull && git checkout -b feat/jogo-exemplo`
+3. Abra o PR para **`develop`**, não para `main`.
+4. Um PR = uma mudança (um jogo ou uma feature).
+5. O maintainer publica em produção com merge `develop` → `main`.
+
+Correção urgente em produção: branch `fix/...` → PR para `main`; depois sincronize `main` em `develop`.
+
 ## Pull request
 
 1. Edite `src/data/dles.json` (ordem alfabética por `name` ajuda na revisão).
