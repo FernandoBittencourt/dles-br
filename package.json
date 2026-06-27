@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:links": "node scripts/check-links.mjs",
-    "build:og": "node scripts/build-og-image.mjs"
+    "build:og": "node scripts/build-og-image.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
